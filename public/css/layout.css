@@ -1,0 +1,45 @@
+.hero-unit {
+  margin-top: 150px;
+}
+.row {
+  margin-top:100px;
+}
+footer {
+  float:right;
+}
+
+/* home */
+#profpic { line-height:0px; }
+#profpic img { height:40px; width:40px; margin-left: 10px; }
+#rooms dl {overflow: hidden;}
+#rooms dd { overflow: hidden; margin-right: 20px; float: left;}
+#rooms dt { overflow: hidden; padding-top: 10px; }
+#rooms .mdate {font-size: 0.9em; color: #a0a0a0;}
+#friends_title {overflow: hidden;}
+#friends_title h2 {float:left; overflow:hidden}
+#enter {float:right; overflow:hidden; margin-top:10px}
+#friends dl { overflow: hidden; }
+#friends dl.on { background-color: #A0A0A0 }
+#friends dd { overflow: hidden; margin-right: 20px; float: left;}
+#friends dt { overflow: hidden; padding-top: 10px;}
+
+/* room */
+#m_input { padding-top: 10px; }
+#message h2 {padding-bottom: 8px;}
+#messages.span7 {margin-left:0px}
+#view {height: 400px; overflow: auto}
+#view .msg {overflow: hidden; padding: 5px 0px; border-bottom: 1px solid #A0A0A0; margin-bottom: 10px}
+#view .msg:last-child {border:none}
+#view .date { float: right; overflow: hidden}
+#view .help-block {margin: 0px}
+#view img { float: left; overflow: hidden; padding-right: 10px}
+#view .combody {overflow: hidden}
+#view .msg h4 {padding-bottom:5px; padding-top: 20px}
+.combody .author {float: left; overflow: hidden; }
+.combody .m_body {float: left; overflow: hidden; clear: both; padding: 10px}
+#members h2 {padding-bottom: 8px}
+
+/* logout */
+a#login {
+ margin-top:20px;
+}

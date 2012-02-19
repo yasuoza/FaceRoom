@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello <%= id %> </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le HTML5 shim,  for IE6-8 support of HTML
+    elements -->
+    <!--[if lt IE 9]> <script
+      src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/layout.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/home.js"></script>
+ </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
+          <a class="brand" href="/">FaceRoom</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.facebook.com">Go to Facebook</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout">Log out</a></li>
+              </ul>
+              </li>
+            </ul>
+            <p class="navbar-text pull-right" id="profpic"><img src="http://graph.facebook.com/<%= user_fid %>/picture"></p>
+            <p class="navbar-text pull-right">Logged in as <a href="#"><%= id %></a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row span8">
+        <h2>Rooms</h2>
+        <div class="well" id="rooms"><% rooms.forEach(function (room) {  %>
+        <dl>
+          <% room.members.forEach(function (mate) {  %>
+            <% if ( id !== mate.name ) { %>
+            <dd><a href="/room/<%= room._id %>"><img src="http://graph.facebook.com/<%= mate.facebook_id %>/picture"></a></dd>
+            <dt><a href="/room/<%= room._id %>"><%= mate.name %></a></dt>
+            <% } %>
+          <% }) %>
+          <span class="mdate"><%= room.modified_on %></span>
+          </dt>
+        </dl>
+        <% }) %>
+      </div>
+      <div id="friends_title">
+        <h2 id="friends_title">Friends</h2>
+        <button type="button" name="enter" id="enter">Enter Room</button>
+      </div>
+        <div class="well" id="friends"><% friends.forEach(function (friend) {  %>
+        <dl>
+          <dd><a href="/newroom?friend_id=<%= friend._id %>"><img src="http://graph.facebook.com/<%= friend.fb_id %>/picture"></a></dd>
+          <dt><a href="/newroom?friend_id=<%= friend._id %>"><%= friend.name %></a></dt>
+          <input type="hidden" value="<%= friend._id %>" name="_id">
+        </dl>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
