@@ -66,6 +66,7 @@
         <h2 id="friends_title">Friends</h2>
         <button type="button" name="enter" id="enter">Enter Room</button>
       </div>
+      <p>Select your friends and push Ener Room</p>
         <div class="well" id="friends"><% friends.forEach(function (friend) {  %>
         <dl>
           <dd><a href="/newroom?friend_id=<%= friend._id %>"><img src="http://graph.facebook.com/<%= friend.fb_id %>/picture"></a></dd>
